@@ -27,10 +27,6 @@ class Token:
 	def __init__(self, type_, value):
 		self.type = type_	# type of token, eg. TOK_IDENTIFIER, TOK_TRAIT...
 		self.value = value	# value of token
-		
-		# line and column numbers for loging error messages
-		self.line = line
-		self.column = column
 
 # https://docs.python.org/3/library/functions.html#repr
 	def __repr__(self):
@@ -49,13 +45,27 @@ class Scanner:
 			self.input = ''
 		self.cur_index = 0
 		self.tokens = []
+		# Error reporting
+		self.errors = []
+		self.line = 1
+		self.column = 1
 	
 	def get_next_char(self):
 		if self.cur_index >= len(self.input):
 			return None		# this should be the end of the input
 		char = self.input[self.cur_index]
 		self.cur_index += 1
+
+		if char == '\n':
+			self.line += 1
+			self.column = 1 # reset column at new line
+		else:
+			self.column += 1
+
 		return char
+	
+	def get_position(self):
+		return self.line, self.column
 	
 	def peek_char(self):
 		# peak at the next char without incrementing
@@ -135,12 +145,13 @@ class Scanner:
 				self.add_token('TOK_EQUALS')
 			elif char == ',':
 				self.add_token('TOK_COMMA')
-			else:
-				# unexpected characters, ignore and try to continue, log error messages
-				line, column = self.get_position()
-				print(f"Error: Unexpected character '{char}' at line '{line}', column '{column}'")
+			else: # unexpected character
 
-				continue		
+				# ignore and try to continue, log error messages
+				line, column = self.get_position()
+				self.errors.append(f"Error: Unexpected character '{char}' at line {line}, column {column}")
+				self.add_token('TOK_ERROR', char)
+				continue
 
 		return self.tokens
 
@@ -233,8 +244,14 @@ def main():
 
 	scanner = Scanner(args.file)
 	tokens = scanner.scan()
+	
 	for token in tokens:
 		print(token)
+	
+	if scanner.errors:
+		print("\nErrors: ")
+		for error in scanner.errors:
+			print(error)
 
 if __name__ == '__main__':
     main()
