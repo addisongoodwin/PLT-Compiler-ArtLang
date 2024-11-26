@@ -85,9 +85,9 @@ class Scanner:
 		while self.peek_char() and self.peek_char().isalpha():
 			next_word += self.get_next_char()
 		
-		if next_word == TOKENS['TOK_YES']:
+		if next_word == TOKENS['TOK_YES'] or next_word.lower() == 'true':
 			return True
-		elif next_word == TOKENS['TOK_NO']:
+		elif next_word == TOKENS['TOK_NO'] or next_word.lower() == 'false':
 			return False
 		else:
 			# print(f"Expected 'Yes' or 'No', but found '{next_word}'. Default set to 'True'")
@@ -227,9 +227,9 @@ class Scanner:
 			self.add_token('TOK_IDENTIFIER', event_desc.strip())
 		elif word == TOKENS['TOK_LOCATION']:
 			self.add_token('TOK_LOCATION')
-		elif word == TOKENS['TOK_YES']:
+		elif word == TOKENS['TOK_YES'] or word.lower() == 'true':
 			self.add_token('TOK_YES', True)
-		elif word == TOKENS['TOK_NO']:
+		elif word == TOKENS['TOK_NO'] or word.lower() == 'false':
 			self.add_token('TOK_NO', False)
 		else:
 			# must be IDENTIFIER (variable name or string 'value')
