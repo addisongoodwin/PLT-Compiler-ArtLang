@@ -197,23 +197,59 @@ class Scanner:
             # must be IDENTIFIER (variable name or string 'value'), catch all case
             self.add_token('TOK_IDENTIFIER', word)
 
+# old main
+# def main():
+#     parser = argparse.ArgumentParser(description = 'Scanner Program')
+#     parser.add_argument('file', help = 'Please enter the path to the input file')
+#     parser.add_argument(
+#         "--output", "-o", default="scanner_out.txt",
+#         help="Path to the output file for the AST (default: ast_output.json)"
+#     )
+#     args = parser.parse_args()
+
+#     print(f"Processing file: {args.file}")
+
+#     scanner = Scanner(args.file)
+#     tokens = scanner.scan()
+    
+#     # for token in tokens:
+#     #     print(token)
+    
+#     # For error reporting during tokenization,
+#     # not currently being used
+#     if scanner.errors: 
+#         print("\nErrors: ")
+#         for error in scanner.errors:
+#             print(error)
+
+# if __name__ == '__main__':
+#     main()
+
 def main():
-    parser = argparse.ArgumentParser(description = 'Scanner Program')
-    parser.add_argument('file', help = 'Please enter the path to the input file')
+    parser = argparse.ArgumentParser(description="Scanner Program")
+    parser.add_argument("file", help="Path to the input file")
+    parser.add_argument(
+        "--output", "-o", default="scanner_out.txt",
+        help="Path to the output file for tokens (default: scanner_out.txt)"
+    )
     args = parser.parse_args()
 
-    # print(f"Processing file: {args.file}")
+    print(f"Processing file: {args.file}")
 
+    # Initialize the scanner and process the file
     scanner = Scanner(args.file)
     tokens = scanner.scan()
-    
-    for token in tokens:
-        print(token)
-    
-    # For error reporting during tokenization,
-    # not currently being used
-    if scanner.errors: 
-        print("\nErrors: ")
+
+    # Write tokens to the specified output file
+    with open(args.output, "w") as output_file:
+        for token in tokens:
+            output_file.write(f"{repr(token)}\n")  # Write each token on a new line
+
+    print(f"Tokens written to: {args.output}")
+
+    # Print errors to the console (if any)
+    if scanner.errors:
+        print("\nErrors encountered during scanning:")
         for error in scanner.errors:
             print(error)
 

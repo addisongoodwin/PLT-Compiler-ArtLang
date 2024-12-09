@@ -284,8 +284,8 @@ class Parser:
             return {"type": "instruction_block", "content": "write story"}
 
 
+# Process the input file by extracting tokens from lines
 def read_input(file_path):
-    """Read input file and tokenize it."""
     tokens = []
     with open(file_path, 'r') as file:
         for line in file:
@@ -295,23 +295,34 @@ def read_input(file_path):
                 tokens.append((token_type, token_value))
     return tokens
 
-
 def main():
-    parser = argparse.ArgumentParser(description="Parser")
-    parser.add_argument("file", help="Path to the input file")
+    parser = argparse.ArgumentParser(description="Addison's PLT Parser Program")
+    parser.add_argument("file", help="Please enter the path to the input file")
+    parser.add_argument(
+        "--output", "-o", default="ast_output.json",
+        help="Path to the output file for the AST (default: ast_output.json)"
+    )
     args = parser.parse_args()
 
+    # Step 1: Tokenize input
     tokens = read_input(args.file)
+    
+    # Step 2: Parse the tokens using your Parser class
+    from my_parser import Parser  # Import the Parser class from your parser implementation
     my_parser = Parser(tokens)
     ast = my_parser.parse()
 
+    # Step 3: Print errors to console, if any
     if my_parser.errors:
         for error in my_parser.errors:
             print(f"Error: {error}")
     else:
         print("Parsing complete successfully.")
-    print(json.dumps(ast, indent=4))
 
+    # Step 4: Write AST to output file
+    with open(args.output, "w") as outfile:
+        json.dump(ast, outfile, indent=4)
+        print(f"AST written to {args.output}")
 
 if __name__ == "__main__":
     main()
