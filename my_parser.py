@@ -99,27 +99,36 @@ class Parser:
         return characters
 
     def parse_character_definition(self):
-        """Parse character details like evil, strength, and traits."""
+        """Parse character details like evil, strength, and traits, with defaults."""
         definition = []
+        evil_present = False
+        strength_present = False
 
         while self.current_token:
+            # Stop parsing details if we encounter a new block or character name
             if self.current_token[0] in {TOK_SCENES, TOK_WRITE_STORY_INST, TOK_PRINT_CHARACTER_INST, TOK_IDENTIFIER}:
-                # Stop when encountering scene blocks, instructions, or a new character
                 break
             elif self.current_token[0] == TOK_EVIL:
                 definition.append(self.parse_restricted_assignment(TOK_EVIL))
+                evil_present = True
             elif self.current_token[0] == TOK_STRENGTH:
                 definition.append(self.parse_restricted_assignment(TOK_STRENGTH))
+                strength_present = True
             elif self.current_token[0] == TOK_TRAIT:
                 definition.append(self.parse_trait_list())
             elif self.current_token[0] in {TOK_EQUALS, TOK_COMMA}:
                 # Skip stray tokens
-                print(f"Skipping unexpected token: {self.current_token}")
                 self.advance()
             else:
-                # Handle unexpected tokens gracefully
+                # Log an error for unexpected tokens
                 self.errors.append(f"Unexpected token in character detail: {self.current_token}")
                 self.advance()
+
+        # Add default values for missing attributes
+        if not evil_present:
+            definition.append({"type": "restricted_assignment", "evil": False})
+        if not strength_present:
+            definition.append({"type": "restricted_assignment", "strength": 0})
 
         return definition
 
