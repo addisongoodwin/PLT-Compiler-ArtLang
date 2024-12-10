@@ -226,7 +226,7 @@ class Scanner:
             self.add_token('TOK_IDENTIFIER', word)
 
 def main():
-    parser = argparse.ArgumentParser(description="Scanner Program")
+    parser = argparse.ArgumentParser(description="Addison's ArtLang Scanner")
     parser.add_argument("file", help="Path to the input file")
     parser.add_argument(
         "--output", "-o", default="scanner_out.txt",

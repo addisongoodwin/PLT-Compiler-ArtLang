@@ -324,7 +324,7 @@ def read_input(file_path):
     return tokens
 
 def main():
-    parser = argparse.ArgumentParser(description="Addison's PLT Parser Program")
+    parser = argparse.ArgumentParser(description="Addison's ArtLang Parser")
     parser.add_argument("file", help="Please enter the path to the input file")
     parser.add_argument(
         "--output", "-o", default="ast_output.json",

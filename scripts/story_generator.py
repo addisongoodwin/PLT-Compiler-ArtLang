@@ -12,7 +12,7 @@ def process_characters(character_blocks):
         traits = []
         evil = False
         strength = 0  # Default to 0 if not specified
-        
+
         for detail in block["definition"]:
             if detail["type"] == "trait_list":
                 traits.extend(detail["traits"])
@@ -96,7 +96,7 @@ def process_instruction(instruction_block):
         return None, None
 
 def main():
-    parser = argparse.ArgumentParser(description="Story Generator")
+    parser = argparse.ArgumentParser(description="ArtLang story_generator.py")
     parser.add_argument("ast_file", help="Path to the AST input file")
     parser.add_argument("--output", "-o", required=True, help="Output file for the generated story")
     args = parser.parse_args()
