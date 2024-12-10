@@ -22,11 +22,11 @@ TOK_NUMBER = 'TOK_NUMBER'
 
 # Instructions
 TOK_WRITE_STORY_INST = 'TOK_WRITE_STORY_INST'
-TOK_PRINT_CHARACTER_INST = 'TOK_PRINT_CHARACTER_INST'
+TOK_PRINT_CHARACTERS_INST = 'TOK_PRINT_CHARACTERS_INST'
 
 INSTRUCTIONS = {
     "write story": "TOK_WRITE_STORY_INST",
-    "print character": "TOK_PRINT_CHARACTER_INST"
+    "print characters": "TOK_PRINT_CHARACTERS_INST"
 }
 
 # Unified TOKENS dictionary for validation (optional)
@@ -46,5 +46,5 @@ TOKENS = {
     TOK_NO: 'no',
     TOK_NUMBER: 'NUMBER',
     TOK_WRITE_STORY_INST: 'write story',
-    TOK_PRINT_CHARACTER_INST: 'print character'
+    TOK_PRINT_CHARACTERS_INST: 'print characters'
 }
