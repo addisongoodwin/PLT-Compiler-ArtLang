@@ -6,7 +6,7 @@ from tokens import (
     TOK_CHARACTERS, TOK_TRAIT, TOK_EVIL, TOK_STRENGTH,
     TOK_SCENES, TOK_EVENT, TOK_LOCATION,
     TOK_YES, TOK_NO, TOK_NUMBER,
-    TOK_WRITE_STORY_INST, TOK_PRINT_CHARACTER_INST, TOKENS, INSTRUCTIONS
+    TOK_WRITE_STORY_INST, TOK_PRINT_CHARACTERS_INST, TOKENS, INSTRUCTIONS
 )
 
 
@@ -39,7 +39,7 @@ class Parser:
 
     def recover(self):
         """Skip tokens until a synchronization token is found."""
-        sync_tokens = {TOK_CHARACTERS, TOK_SCENES, TOK_WRITE_STORY_INST, TOK_PRINT_CHARACTER_INST}
+        sync_tokens = {TOK_CHARACTERS, TOK_SCENES, TOK_WRITE_STORY_INST, TOK_PRINT_CHARACTERS_INST}
         while self.current_token and self.current_token[0] not in sync_tokens:
             print(f"Skipping: {self.current_token}")
             self.advance()
@@ -62,7 +62,7 @@ class Parser:
             return self.parse_character_block()
         elif self.current_token[0] == TOK_SCENES:
             return self.parse_scene_block()
-        elif self.current_token[0] in {TOK_WRITE_STORY_INST, TOK_PRINT_CHARACTER_INST}:
+        elif self.current_token[0] in {TOK_WRITE_STORY_INST, TOK_PRINT_CHARACTERS_INST}:
             return self.parse_instruction_block()
         elif self.current_token[0] == TOK_ERROR:
             self.errors.append(f"Encountered TOK_ERROR: {self.current_token}")
@@ -79,7 +79,7 @@ class Parser:
         characters = []
 
         while self.current_token:
-            if self.current_token[0] in {TOK_SCENES, TOK_WRITE_STORY_INST, TOK_PRINT_CHARACTER_INST}:
+            if self.current_token[0] in {TOK_SCENES, TOK_WRITE_STORY_INST, TOK_PRINT_CHARACTERS_INST}:
                 # Stop processing when we encounter a scene block or instruction
                 break
             elif self.current_token[0] == TOK_IDENTIFIER:  # Character name
@@ -106,7 +106,7 @@ class Parser:
 
         while self.current_token:
             # Stop parsing details if we encounter a new block or character name
-            if self.current_token[0] in {TOK_SCENES, TOK_WRITE_STORY_INST, TOK_PRINT_CHARACTER_INST, TOK_IDENTIFIER}:
+            if self.current_token[0] in {TOK_SCENES, TOK_WRITE_STORY_INST, TOK_PRINT_CHARACTERS_INST, TOK_IDENTIFIER}:
                 break
             elif self.current_token[0] == TOK_EVIL:
                 definition.append(self.parse_restricted_assignment(TOK_EVIL))
@@ -194,7 +194,7 @@ class Parser:
         scenes = []
 
         while self.current_token:
-            if self.current_token[0] in {TOK_CHARACTERS, TOK_WRITE_STORY_INST, TOK_PRINT_CHARACTER_INST}:
+            if self.current_token[0] in {TOK_CHARACTERS, TOK_WRITE_STORY_INST, TOK_PRINT_CHARACTERS_INST}:
                 # Stop parsing when encountering a new block
                 break
             elif self.current_token[0] == TOK_IDENTIFIER:  # Scene name
@@ -226,7 +226,7 @@ class Parser:
 
         while self.current_token:
             # Stop if encountering a new scene, characters block, or instructions
-            if self.current_token[0] in {TOK_SCENES, TOK_CHARACTERS, TOK_WRITE_STORY_INST, TOK_PRINT_CHARACTER_INST}:
+            if self.current_token[0] in {TOK_SCENES, TOK_CHARACTERS, TOK_WRITE_STORY_INST, TOK_PRINT_CHARACTERS_INST}:
                 break
             # Stop if encountering a new scene name (TOK_IDENTIFIER)
             elif self.current_token[0] == TOK_IDENTIFIER and self.peek_next_token_type() != TOK_EQUALS:
@@ -275,13 +275,41 @@ class Parser:
 # end scene block
 
     def parse_instruction_block(self):
-        """Parse instructions like 'write story' or 'print character'."""
+        """Parse instructions like 'write story' or 'print characters'."""
         inst_type = self.current_token[0]
-        self.advance()
-        if inst_type == TOK_PRINT_CHARACTER_INST:
-            return {"type": "instruction_block", "instruction": inst_type}
+        self.advance()  # Consume the instruction token
+
+        if inst_type == TOK_PRINT_CHARACTERS_INST:
+            # Collect character names after 'print characters'
+            characters = []
+            while self.current_token:
+                if self.current_token[0] == TOK_IDENTIFIER:
+                    # Add character names to the list
+                    characters.append(self.current_token[1])
+                    self.advance()
+                elif self.current_token[0] == TOK_COMMA:
+                    # Skip over commas
+                    self.advance()
+                else:
+                    # Stop parsing characters on unexpected tokens
+                    break
+            
+            return {
+                "type": "instruction_block",
+                "instruction": "print characters",
+                "characters": characters  # List of characters
+            }
+
         elif inst_type == TOK_WRITE_STORY_INST:
-            return {"type": "instruction_block", "content": "write story"}
+            # No characters follow 'write story'
+            return {
+                "type": "instruction_block",
+                "instruction": "write story"
+            }
+
+        else:
+            self.errors.append(f"Unexpected instruction: {self.current_token}")
+            return None
 
 
 # Process the input file by extracting tokens from lines
