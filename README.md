@@ -1,4 +1,4 @@
-# PLT Programming Assignment 2 - Parser
+# PLT Programming Assignment Compiler -- ArtLang
 Addison Goodwin, ag4423
 
 ## Context-free Grammar & Production Rules
@@ -56,15 +56,50 @@ character_list
 character_list_t
 ```
 
-## lexer.py Patch Notes
-1. Corrected a typo so that `TOK_CHARACTERS` is correctly tokenized.
-Previously the token was `TOK_CHARACTER`, but this failed to correctly tokenize into the `TOK_CHARACTERS` token meant to specify the start of the character definition block.
+## Change List
+### ArtLang.py
+- The main pipline workflow for the compiler.
+- Runs scanner.py --> parser.py --> code_generator.py sequentially.
+- Currently, each step saves its output (`tokens.txt`, `AST.json`, and the final story `story.txt`) into the user-specified folder for my error checking.
+- Captures and displays errors for each step and prints them to terminal as to not pollute the output, and input to the next phase in the compiler.
+- Errors will not stop subsequent steps, ensuring all outputs are attempted.
 
-2. Removed print statements used for clarity during Part 1 submission but that are not suitable as input into the parser.
+To run ArtLang.py:
+Requires Python 3.12.0 for best compatability (see below for instructions for running with Docker)
+```
+python ArtLang.py <input_program.txt> --output_folder <output_dir_name>
+```
+  
+### Scanner
+Error tracking:
+- Separated token output and error output, so that user-facing errors are not sent to the parser.
+- Added line and column tracking for unrecognized characters and other errors.
 
-3. Removed tokenization of the `=` tokenized as `TOK_EQUALS` during tokenization of the value in `TOK_EVIL`. The value of `TOK_EQUALS` is captured into the token during lexical analysis, so this `=` is only annoying during parsing.
+Other:
+- Expanded accepted boolean values to include `true` and `false`. Now `yes, no, true, false` are acceptable.
 
-4. Added `TOK_ERROR` token to the lexer such that the parser might be able to identify errors and sugguest or autofix mistakes, depending on where it is in the tree. The lexer now tokenizes `TOK_ERROR` and the error value rather than printing an error message.
+Changes to processing of`TOK_EQUALS` token:
+- Removed tight coupling of `TOK_EVIL` with `TOK_EQUALS` to produce a `<TOK_EVIL, value>` token. This was difficult to handle in the parser, because there are other occurrences of `TOK_EQUALS` not so tightly coupled.
+- same change made for `<TOK_STRENGTH, value>`. 
+- Going forward:
+	- The input `evil = yes` will be parsed as `<TOK_EVIL>`, `TOK_EQUALS`,`<TOK_BOOLEAN, TRUE>`. 
+	- The input `strength = 10` will be parsed as `<TOK_STRENGTH>`, `<TOK_EQUALS>`,  `<TOK_NUMBER, 10>`, and we will ensure robust correctness during parsing.
+ ### Parser
+ - Now utilizes a `class Parser` for consistency with the design in Scanner, and to allow for better management of parsing logic and error reporting. I find writing this way greatly improves code-readability.
+
+- Added the `advance(self)` function that increments a counter and moves to the next token.
+- Added the `match(self, expected type)` function to check if the current token matches the expected token. If so, returns true and calls `advance()`, else it will add a generic error message about incorrect tokens to the error stream.
+- Added the `recover(self)` function: Upon encountering a fatal TOK_ERROR, try to skip forward to the next recognizable block and continue parsing. Even if the parser fails in the end, the parser will output a complete list of errors.
+#### Error handling in the parser
+- Added explicit defaults for the following cases, when assignment is absent:
+	Characters block:
+		- Strength defaults to 0.
+		- Evil defaults to false.
+
+- If the assignment is malformed rather than missing, we will stop and return errors, because that seems to indicate the user wanted some specific assignment or otherwise doesn't understand the language well enough to be successful.
+
+- Right now, the parser prints scary "ERROR: " statements, but most of the time these do not cause the parser to fail, and it is able to put out a clean AST. It ignores and disregards invalid characters, used in assignment or otherwise, and will try to handle weird tokens too. The output could be improved to indicate that it was not a fatal error, and just warn the user that they are writing unrecognized characters.
+
 
 ## How to Build and Run
 
