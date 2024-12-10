@@ -23,6 +23,13 @@ The provided shell script will run automatically.
 docker run --name plt_compiler_tests plt_compiler
 ```
 
+#### Access Results (Optional)
+ArtLang.py outputs results to files in folders. You can mount a volume to view them on your host, if you'd like. I've provided them as well in the repo.
+Replace `output` with the actual directories where results are stored (see run_ArtLang.sh to see the directories)
+```
+docker run -v $(pwd)/output:/app/output --name plt_compiler_tests plt_compiler
+```
+
 ### Manually
 Requires Python 3.12.0 for best compatability (see below for instructions for running with Docker)
 
@@ -31,6 +38,20 @@ python ArtLang.py <input_program.txt> --output_folder <output_dir_name>
 ```
 
 ## Understanding Output
+
+### Test 1: easy and simple program that tests the`print characters` instructions to list select characters
+###### Test 2: invalid characters
+- invalid characters are tokenized as `TOK_ERR`, then reported as errors during parsing.
+- Most invalid characters are discarded without much problem, the parser builds and AST and the compiler ends with successful story generation.
+- Shows succesful recognition of bad characters in the scanner, and shows robustness in the parser.
+###### Test 3: long input
+- A more challenging example. Runs twice, once to demonstrate the `write story` instruction, and again to demonstrate the `print characters` instruction.
+- Long to show that the tokenizer, parser, and story generation are robust enough to handle long (albeit clean) inputs.
+###### Test 4: example of failure
+- Just fails due to unfixable syntax errors and missing values in the sample program, but prints some good error information to indicate where the issue is.
+###### Test 5: weird values
+- long lists of traits, weird (negative) or long values for strength, and very long event descriptions.
+- Works as expected for both story generation and character listing.
 
 ## Change List
 ### ArtLang.py
