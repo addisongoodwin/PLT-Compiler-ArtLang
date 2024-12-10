@@ -1,68 +1,80 @@
 import argparse
 import json
 
-def generate_code(ast):
-    """
-    Generate intermediate code from the AST.
-    """
-    code_lines = []
+def load_ast(file_path):
+    with open(file_path, 'r') as file:
+        return json.load(file)
 
-    for block in ast:
-        if isinstance(block, list):  # Character block list
-            for character in block:
-                code_lines.append(f"# Character: {character['name']}")
-                for detail in character.get("definition", []):
-                    if detail["type"] == "restricted_assignment" and "evil" in detail:
-                        evil_status = "True" if detail["evil"] else "False"
-                        code_lines.append(f"SET EVIL {character['name']} {evil_status}")
-                    elif detail["type"] == "restricted_assignment" and "strength" in detail:
-                        code_lines.append(f"SET STRENGTH {character['name']} {detail['strength']}")
-                    elif detail["type"] == "trait_list":
-                        traits = ", ".join(detail["traits"])
-                        code_lines.append(f"SET TRAITS {character['name']} {traits}")
-                code_lines.append("")  # Blank line for readability
-        
-        elif isinstance(block, dict) and block["type"] == "scene_block_list":
-            for scene in block.get("scenes", []):
-                code_lines.append(f"# Scene: {scene['name']}")
-                for detail in scene.get("details", []):
-                    if detail["type"] == "location_assignment":
-                        code_lines.append(f"SET LOCATION {scene['name']} {detail['location']}")
-                    elif detail["type"] == "event_assignment":
-                        code_lines.append(f"SET EVENT {scene['name']} \"{detail['event']}\"")
-                    elif detail["type"] == "characters_present":
-                        characters = ", ".join(detail["characters"])
-                        code_lines.append(f"SET CHARACTERS {scene['name']} {characters}")
-                code_lines.append("")  # Blank line for readability
+def process_characters(character_blocks):
+    characters = {}
+    for block in character_blocks:
+        name = block["name"]
+        traits = []
+        evil = False
+        for detail in block["definition"]:
+            if detail["type"] == "trait_list":
+                traits.extend(detail["traits"])
+            elif detail["type"] == "restricted_assignment":
+                if "evil" in detail:
+                    evil = detail["evil"]
+        characters[name] = {"traits": traits, "evil": evil}
+    return characters
 
-        elif isinstance(block, dict) and block["type"] == "instruction_block":
-            if block.get("content") == "write story":
-                code_lines.append("WRITE_STORY")
-            elif block.get("instruction") == "TOK_PRINT_CHARACTER_INST":
-                code_lines.append("PRINT_CHARACTERS")
+def generate_story(ast):
+    character_blocks, scenes, instruction = ast[0], ast[1]["scenes"], ast[2]
+    characters = process_characters(character_blocks)
 
-    return code_lines
+    story_lines = []
+
+    # Process each scene
+    for scene in scenes:
+        location = None
+        event = None
+        present_characters = []
+
+        for detail in scene["details"]:
+            if detail["type"] == "location_assignment":
+                location = detail["location"]
+            elif detail["type"] == "characters_present":
+                present_characters = detail["characters"]
+            elif detail["type"] == "event_assignment":
+                event = detail["event"]
+
+        # Generate scene narrative
+        if location:
+            story_lines.append(f"It was a normal day in {location} with " +
+                ", ".join(f"{', '.join(characters[c]['traits'])} {c}" for c in present_characters[:-1]) +
+                f" and {', '.join(characters[present_characters[-1]]['traits'])} {present_characters[-1]}.")
+
+        if event:
+            story_lines.append(f"Suddenly, {event}.")
+
+        # Add specific character interactions
+        if event == "fight" and len(present_characters) == 2:
+            char1, char2 = present_characters
+            story_lines.append(f"{char2} attacks {char1}. After a long fight, " +
+                f"{', '.join(characters[char1]['traits'])} {char1} emerges victorious. "
+                f"All the evil is defeated, and the world is happy again...")
+
+    return "\n".join(story_lines)
 
 def main():
-    parser = argparse.ArgumentParser(description="Code Generator")
-    parser.add_argument("ast_file", help="Path to the input AST JSON file")
-    parser.add_argument(
-        "--output", "-o", default="generated_code.txt",
-        help="Path to the output file for the generated code"
-    )
+    parser = argparse.ArgumentParser(description="Story Generator")
+    parser.add_argument("ast_file", help="Path to the AST input file")
+    parser.add_argument("--output", "-o", required=True, help="Output file for the generated story")
     args = parser.parse_args()
 
-    # Read AST from JSON file
-    with open(args.ast_file, "r") as infile:
-        ast = json.load(infile)
+    # Load AST
+    with open(args.ast_file, 'r') as f:
+        ast = json.load(f)
 
-    # Generate intermediate code
-    code = generate_code(ast)
+    # Generate story
+    story = generate_story(ast)
 
-    # Write the code to an output file
-    with open(args.output, "w") as outfile:
-        outfile.write("\n".join(code))
-        print(f"Code written to {args.output}")
+    # Write output to file
+    with open(args.output, 'w') as f:
+        f.write(story)
+    print(f"Story successfully written to {args.output}")
 
 if __name__ == "__main__":
     main()
