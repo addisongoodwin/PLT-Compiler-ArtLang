@@ -1,6 +1,37 @@
 # PLT Programming Assignment Compiler -- ArtLang
 Addison Goodwin, ag4423
 
+## How to Run ArtLang.py:
+
+### Using Docker
+
+#### 1. Clone the Repository
+
+After cloning the repository, navigate to the project directory.
+
+#### 2. Build the Docker Image
+
+Use the provided Dockerfile to build the Docker image:
+Note that you must be in the project directory to use the `.` directory, otherwise please specify the directory.
+```
+docker build -t plt_compiler .
+```
+
+#### Run the Docker Container
+The provided shell script will run automatically.
+```
+docker run --name plt_compiler_tests plt_compiler
+```
+
+### Manually
+Requires Python 3.12.0 for best compatability (see below for instructions for running with Docker)
+
+```
+python ArtLang.py <input_program.txt> --output_folder <output_dir_name>
+```
+
+## Understanding Output
+
 ## Change List
 ### ArtLang.py
 - The main pipline workflow for the compiler.
@@ -8,13 +39,7 @@ Addison Goodwin, ag4423
 - Currently, each step saves its output (`tokens.txt`, `AST.json`, and the final story `story.txt`) into the user-specified folder for my error checking.
 - Captures and displays errors for each step and prints them to terminal as to not pollute the output, and input to the next phase in the compiler.
 - Errors will not stop subsequent steps, ensuring all outputs are attempted.
-
-To run ArtLang.py:
-Requires Python 3.12.0 for best compatability (see below for instructions for running with Docker)
-```
-python ArtLang.py <input_program.txt> --output_folder <output_dir_name>
-```
-  
+- 
 ### Scanner
 Error tracking:
 - Separated token output and error output, so that user-facing errors are not sent to the parser.
@@ -44,29 +69,6 @@ Changes to processing of`TOK_EQUALS` token:
 - If the assignment is malformed rather than missing, we will stop and return errors, because that seems to indicate the user wanted some specific assignment or otherwise doesn't understand the language well enough to be successful.
 
 - Right now, the parser prints scary "ERROR: " statements, but most of the time these do not cause the parser to fail, and it is able to put out a clean AST. It ignores and disregards invalid characters, used in assignment or otherwise, and will try to handle weird tokens too. The output could be improved to indicate that it was not a fatal error, and just warn the user that they are writing unrecognized characters.
-
-
-## How to Build and Run
-
-### 1. Clone the Repository
-
-After cloning the repository, navigate to the project directory.
-
-### 2. Build the Docker Image
-
-Use the provided Dockerfile to build the Docker image:
-Note that you must be in the project directory to use the `.` directory, otherwise please specify the directory.
-```
-docker build -t parser-image .
-```
-
-### Run the Docker Container
-```
-docker run parser-image
-```  
-
-## Understanding Output
-
 
 ## Context-free Grammar & Production Rules
 
