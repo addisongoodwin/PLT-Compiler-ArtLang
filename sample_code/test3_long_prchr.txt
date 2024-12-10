@@ -1,0 +1,102 @@
+Characters
+    Leonardo
+        evil = no
+        trait = brave, humble, smart
+        strength = 10
+
+    Picasso
+        evil = yes
+        trait = big, jealous
+        strength = 9
+
+    VanGogh
+        trait = confused
+        strength = 0
+
+    Frida
+        evil = no
+        trait = witty, calm
+        strength = 7
+
+    Dali
+        evil = yes
+        trait = sneaky, quick
+        strength = 8
+
+    Michelangelo
+        evil = no
+        trait = strong, determined
+        strength = 9
+
+    Donatello
+        evil = no
+        trait = clever, resourceful
+        strength = 8
+
+    Raphael
+        evil = yes
+        trait = aggressive, hottempered
+        strength = 7
+
+    Monet
+        evil = no
+        trait = observant, calm
+        strength = 6
+
+    Rembrandt
+        evil = yes
+        trait = mysterious, cunning
+        strength = 8
+
+Scenes
+    One
+        location = classroom
+        characters = Leonardo, Picasso, VanGogh
+        event = painting class
+
+    Two
+        location = village
+        characters = Leonardo, Picasso
+        event = pillow fight
+
+    Three
+        location = forest
+        characters = Frida, Dali, Leonardo
+        event = a mysterious shadow appears
+
+    Four
+        location = mountain
+        characters = VanGogh, Frida
+        event = the ground starts shaking
+
+    Five
+        location = castle
+        characters = Picasso, Dali, Leonardo
+        event = the king is kidnapped
+
+    Six
+        location = ancient ruins
+        characters = Michelangelo, Donatello, Rembrandt
+        event = a hidden treasure is discovered
+
+    Seven
+        location = battlefield
+        characters = Raphael, Leonardo, Dali
+        event = an epic battle takes place
+
+    Eight
+        location = library
+        characters = Monet, Donatello, VanGogh
+        event = a secret is revealed in an ancient book
+
+    Nine
+        location = underground lair
+        characters = Rembrandt, Raphael, Dali
+        event = a villain's plan is uncovered
+
+    Ten
+        location = tower
+        characters = Michelangelo, Frida, Leonardo
+        event = a final showdown occurs between good and evil
+
+print characters

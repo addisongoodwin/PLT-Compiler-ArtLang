@@ -1,0 +1,202 @@
+[
+    [
+        {
+            "type": "character_block",
+            "name": "Picasso",
+            "definition": [
+                {
+                    "type": "restricted_assignment",
+                    "evil": true
+                },
+                {
+                    "type": "trait_list",
+                    "traits": [
+                        "big",
+                        "jealous"
+                    ]
+                },
+                {
+                    "type": "restricted_assignment",
+                    "strength": 0
+                }
+            ]
+        },
+        {
+            "type": "character_block",
+            "name": "VanGogh",
+            "definition": [
+                {
+                    "type": "trait_list",
+                    "traits": [
+                        "confused"
+                    ]
+                },
+                {
+                    "type": "restricted_assignment",
+                    "strength": 0
+                },
+                {
+                    "type": "restricted_assignment",
+                    "evil": false
+                }
+            ]
+        },
+        {
+            "type": "character_block",
+            "name": "Frida",
+            "definition": [
+                {
+                    "type": "restricted_assignment",
+                    "evil": false
+                },
+                {
+                    "type": "trait_list",
+                    "traits": [
+                        "witty",
+                        "calm"
+                    ]
+                },
+                {
+                    "type": "restricted_assignment",
+                    "strength": 1
+                }
+            ]
+        },
+        {
+            "type": "character_block",
+            "name": "Dali",
+            "definition": [
+                {
+                    "type": "restricted_assignment",
+                    "evil": true
+                },
+                {
+                    "type": "trait_list",
+                    "traits": [
+                        "sneaky",
+                        "quick"
+                    ]
+                },
+                {
+                    "type": "restricted_assignment",
+                    "strength": 1
+                }
+            ]
+        }
+    ],
+    {
+        "type": "scene_block_list",
+        "scenes": [
+            {
+                "type": "scene_block",
+                "name": "One",
+                "details": [
+                    {
+                        "type": "location_assignment",
+                        "location": "classroom"
+                    },
+                    {
+                        "type": "characters_present",
+                        "characters": [
+                            "Leonardo",
+                            "Picasso",
+                            "VanGogh"
+                        ]
+                    },
+                    {
+                        "type": "event_assignment",
+                        "event": "painting class"
+                    }
+                ]
+            },
+            {
+                "type": "scene_block",
+                "name": "Two",
+                "details": [
+                    {
+                        "type": "location_assignment",
+                        "location": "village"
+                    },
+                    {
+                        "type": "characters_present",
+                        "characters": [
+                            "Leonardo",
+                            "Picasso"
+                        ]
+                    },
+                    {
+                        "type": "event_assignment",
+                        "event": "pillow fight"
+                    }
+                ]
+            },
+            {
+                "type": "scene_block",
+                "name": "Three",
+                "details": [
+                    {
+                        "type": "location_assignment",
+                        "location": "forest"
+                    },
+                    {
+                        "type": "characters_present",
+                        "characters": [
+                            "Frida",
+                            "Dali",
+                            "Leonardo"
+                        ]
+                    },
+                    {
+                        "type": "event_assignment",
+                        "event": "a mysterious shadow appears"
+                    }
+                ]
+            },
+            {
+                "type": "scene_block",
+                "name": "Four",
+                "details": [
+                    {
+                        "type": "location_assignment",
+                        "location": "mountain"
+                    },
+                    {
+                        "type": "characters_present",
+                        "characters": [
+                            "VanGogh",
+                            "Frida"
+                        ]
+                    },
+                    {
+                        "type": "event_assignment",
+                        "event": "the ground starts shaking"
+                    }
+                ]
+            },
+            {
+                "type": "scene_block",
+                "name": "Five",
+                "details": [
+                    {
+                        "type": "location_assignment",
+                        "location": "castle"
+                    },
+                    {
+                        "type": "characters_present",
+                        "characters": [
+                            "Frida"
+                        ]
+                    },
+                    {
+                        "type": "event_assignment",
+                        "event": "the king is kidnapped"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "instruction_block",
+        "instruction": "write story"
+    }
+]

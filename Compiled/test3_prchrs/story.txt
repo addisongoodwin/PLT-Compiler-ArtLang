@@ -1,0 +1,12 @@
+--- Character Details ---
+
+Leonardo -> Traits: brave, humble, smart, Evil: no, Strength: 10
+Picasso -> Traits: big, jealous, Evil: yes, Strength: 9
+VanGogh -> Traits: confused, Evil: no, Strength: 0
+Frida -> Traits: witty, calm, Evil: no, Strength: 7
+Dali -> Traits: sneaky, quick, Evil: yes, Strength: 8
+Michelangelo -> Traits: strong, determined, Evil: no, Strength: 9
+Donatello -> Traits: clever, resourceful, Evil: no, Strength: 8
+Raphael -> Traits: aggressive, hottempered, Evil: yes, Strength: 7
+Monet -> Traits: observant, calm, Evil: no, Strength: 6
+Rembrandt -> Traits: mysterious, cunning, Evil: yes, Strength: 8

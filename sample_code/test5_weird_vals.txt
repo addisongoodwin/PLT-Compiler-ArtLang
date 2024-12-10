@@ -1,0 +1,65 @@
+Characters
+
+Leonardo  
+    evil = yes  
+    trait = brave, ambitious, cunning, ruthless, relentless, charismatic, innovative, fearless, strategic  
+    strength = 9999999999999  
+
+Picasso  
+    evil = no  
+    trait = rebellious, impulsive, visionary, bold, unconventional, passionate, daring, emotional  
+    strength = -15  
+
+VanGogh  
+    evil = no  
+    trait = artistic, troubled, genius, restless, perceptive, sensitive, imaginative, introspective, melancholic  
+    strength = 5  
+
+Frida  
+    evil = yes  
+    trait = fearless, thoughtful, resolute, resilient, intuitive, compassionate, poetic, self-aware, unyielding  
+    strength = 7  
+
+Dali  
+    evil = no  
+    trait = imaginative, eccentric, surreal, flamboyant, enigmatic, quirky, unpredictable, experimental, whimsical  
+    strength = 8  
+
+Daumier  
+    evil = no  
+    trait = sharp, critical, satirical, witty, observant, perceptive, insightful, rebellious, analytical  
+    strength = 3  
+
+Scenes
+
+One  
+    location = gallery  
+    characters = Leonardo, Picasso, Dali  
+    event = the sculptures suddenly start talking, reciting poems about the meaning of existence, while moving their stone limbs in unison. One sculpture whispers a secret to Leonardo that shocks him.  
+
+Two  
+    location = village  
+    characters = VanGogh, Frida  
+    event = strange symbols appear on every wall, glowing faintly as night falls. Frida deciphers the symbols and realizes they tell the story of a forgotten civilization. Meanwhile, VanGogh is overcome with inspiration and begins painting them on every available surface.  
+
+Three  
+    location = museum  
+    characters = Picasso, Daumier, Dali  
+    event = the lights flicker and reveal hidden paintings underneath the existing ones. Each new painting depicts unsettling visions of alternate realities, showing the characters as rulers, rebels, or shadows. Daumier critiques them, Dali applauds their surreal nature, and Picasso claims one as his own.  
+
+Four  
+    location = forest  
+    characters = Frida, VanGogh, Leonardo  
+    event = time moves backward, and everyone gets younger. VanGogh notices the colors of the forest change into vibrant hues he has never seen before. Leonardo begins drafting inventions with childlike wonder, while Frida reflects on the fleeting nature of time as she observes the reversing seasons.  
+
+Five  
+    location = mountain  
+    characters = Picasso, Dali, Daumier  
+    event = a portal opens in the sky and swallows the mountain piece by piece. Rocks float upwards as gravity reverses. Picasso sketches the surreal scene, Dali tries to jump into the portal, and Daumier shouts warnings about the consequences of tampering with unknown forces.  
+
+Six  
+    location = labyrinth  
+    characters = Leonardo, Frida, VanGogh  
+    event = the walls of the labyrinth shift and trap everyone inside. Each turn they take leads them to strange rooms: one filled with mirrors reflecting their darkest fears, another showing glimpses of their past triumphs and failures. Leonardo studies the walls for patterns, Frida remains calm and resourceful, and VanGogh starts carving a path through the maze with artistic precision.  
+
+write story

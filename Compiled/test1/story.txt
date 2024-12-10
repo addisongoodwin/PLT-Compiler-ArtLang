@@ -1,0 +1,5 @@
+--- Character Details ---
+
+Alice -> Traits: brave, humble, smart, Evil: no, Strength: 10
+Bob -> Traits: big, jealous, Evil: yes, Strength: 9
+Addison -> Traits: confused, Evil: no, Strength: 0

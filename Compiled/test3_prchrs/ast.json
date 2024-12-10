@@ -1,0 +1,442 @@
+[
+    [
+        {
+            "type": "character_block",
+            "name": "Leonardo",
+            "definition": [
+                {
+                    "type": "restricted_assignment",
+                    "evil": false
+                },
+                {
+                    "type": "trait_list",
+                    "traits": [
+                        "brave",
+                        "humble",
+                        "smart"
+                    ]
+                },
+                {
+                    "type": "restricted_assignment",
+                    "strength": 10
+                }
+            ]
+        },
+        {
+            "type": "character_block",
+            "name": "Picasso",
+            "definition": [
+                {
+                    "type": "restricted_assignment",
+                    "evil": true
+                },
+                {
+                    "type": "trait_list",
+                    "traits": [
+                        "big",
+                        "jealous"
+                    ]
+                },
+                {
+                    "type": "restricted_assignment",
+                    "strength": 9
+                }
+            ]
+        },
+        {
+            "type": "character_block",
+            "name": "VanGogh",
+            "definition": [
+                {
+                    "type": "trait_list",
+                    "traits": [
+                        "confused"
+                    ]
+                },
+                {
+                    "type": "restricted_assignment",
+                    "strength": 0
+                },
+                {
+                    "type": "restricted_assignment",
+                    "evil": false
+                }
+            ]
+        },
+        {
+            "type": "character_block",
+            "name": "Frida",
+            "definition": [
+                {
+                    "type": "restricted_assignment",
+                    "evil": false
+                },
+                {
+                    "type": "trait_list",
+                    "traits": [
+                        "witty",
+                        "calm"
+                    ]
+                },
+                {
+                    "type": "restricted_assignment",
+                    "strength": 7
+                }
+            ]
+        },
+        {
+            "type": "character_block",
+            "name": "Dali",
+            "definition": [
+                {
+                    "type": "restricted_assignment",
+                    "evil": true
+                },
+                {
+                    "type": "trait_list",
+                    "traits": [
+                        "sneaky",
+                        "quick"
+                    ]
+                },
+                {
+                    "type": "restricted_assignment",
+                    "strength": 8
+                }
+            ]
+        },
+        {
+            "type": "character_block",
+            "name": "Michelangelo",
+            "definition": [
+                {
+                    "type": "restricted_assignment",
+                    "evil": false
+                },
+                {
+                    "type": "trait_list",
+                    "traits": [
+                        "strong",
+                        "determined"
+                    ]
+                },
+                {
+                    "type": "restricted_assignment",
+                    "strength": 9
+                }
+            ]
+        },
+        {
+            "type": "character_block",
+            "name": "Donatello",
+            "definition": [
+                {
+                    "type": "restricted_assignment",
+                    "evil": false
+                },
+                {
+                    "type": "trait_list",
+                    "traits": [
+                        "clever",
+                        "resourceful"
+                    ]
+                },
+                {
+                    "type": "restricted_assignment",
+                    "strength": 8
+                }
+            ]
+        },
+        {
+            "type": "character_block",
+            "name": "Raphael",
+            "definition": [
+                {
+                    "type": "restricted_assignment",
+                    "evil": true
+                },
+                {
+                    "type": "trait_list",
+                    "traits": [
+                        "aggressive",
+                        "hottempered"
+                    ]
+                },
+                {
+                    "type": "restricted_assignment",
+                    "strength": 7
+                }
+            ]
+        },
+        {
+            "type": "character_block",
+            "name": "Monet",
+            "definition": [
+                {
+                    "type": "restricted_assignment",
+                    "evil": false
+                },
+                {
+                    "type": "trait_list",
+                    "traits": [
+                        "observant",
+                        "calm"
+                    ]
+                },
+                {
+                    "type": "restricted_assignment",
+                    "strength": 6
+                }
+            ]
+        },
+        {
+            "type": "character_block",
+            "name": "Rembrandt",
+            "definition": [
+                {
+                    "type": "restricted_assignment",
+                    "evil": true
+                },
+                {
+                    "type": "trait_list",
+                    "traits": [
+                        "mysterious",
+                        "cunning"
+                    ]
+                },
+                {
+                    "type": "restricted_assignment",
+                    "strength": 8
+                }
+            ]
+        }
+    ],
+    {
+        "type": "scene_block_list",
+        "scenes": [
+            {
+                "type": "scene_block",
+                "name": "One",
+                "details": [
+                    {
+                        "type": "location_assignment",
+                        "location": "classroom"
+                    },
+                    {
+                        "type": "characters_present",
+                        "characters": [
+                            "Leonardo",
+                            "Picasso",
+                            "VanGogh"
+                        ]
+                    },
+                    {
+                        "type": "event_assignment",
+                        "event": "painting class"
+                    }
+                ]
+            },
+            {
+                "type": "scene_block",
+                "name": "Two",
+                "details": [
+                    {
+                        "type": "location_assignment",
+                        "location": "village"
+                    },
+                    {
+                        "type": "characters_present",
+                        "characters": [
+                            "Leonardo",
+                            "Picasso"
+                        ]
+                    },
+                    {
+                        "type": "event_assignment",
+                        "event": "pillow fight"
+                    }
+                ]
+            },
+            {
+                "type": "scene_block",
+                "name": "Three",
+                "details": [
+                    {
+                        "type": "location_assignment",
+                        "location": "forest"
+                    },
+                    {
+                        "type": "characters_present",
+                        "characters": [
+                            "Frida",
+                            "Dali",
+                            "Leonardo"
+                        ]
+                    },
+                    {
+                        "type": "event_assignment",
+                        "event": "a mysterious shadow appears"
+                    }
+                ]
+            },
+            {
+                "type": "scene_block",
+                "name": "Four",
+                "details": [
+                    {
+                        "type": "location_assignment",
+                        "location": "mountain"
+                    },
+                    {
+                        "type": "characters_present",
+                        "characters": [
+                            "VanGogh",
+                            "Frida"
+                        ]
+                    },
+                    {
+                        "type": "event_assignment",
+                        "event": "the ground starts shaking"
+                    }
+                ]
+            },
+            {
+                "type": "scene_block",
+                "name": "Five",
+                "details": [
+                    {
+                        "type": "location_assignment",
+                        "location": "castle"
+                    },
+                    {
+                        "type": "characters_present",
+                        "characters": [
+                            "Picasso",
+                            "Dali",
+                            "Leonardo"
+                        ]
+                    },
+                    {
+                        "type": "event_assignment",
+                        "event": "the king is kidnapped"
+                    }
+                ]
+            },
+            {
+                "type": "scene_block",
+                "name": "Six",
+                "details": [
+                    {
+                        "type": "location_assignment",
+                        "location": "ancient"
+                    },
+                    {
+                        "type": "characters_present",
+                        "characters": [
+                            "Michelangelo",
+                            "Donatello",
+                            "Rembrandt"
+                        ]
+                    },
+                    {
+                        "type": "event_assignment",
+                        "event": "a hidden treasure is discovered"
+                    }
+                ]
+            },
+            {
+                "type": "scene_block",
+                "name": "Seven",
+                "details": [
+                    {
+                        "type": "location_assignment",
+                        "location": "battlefield"
+                    },
+                    {
+                        "type": "characters_present",
+                        "characters": [
+                            "Raphael",
+                            "Leonardo",
+                            "Dali"
+                        ]
+                    },
+                    {
+                        "type": "event_assignment",
+                        "event": "an epic battle takes place"
+                    }
+                ]
+            },
+            {
+                "type": "scene_block",
+                "name": "Eight",
+                "details": [
+                    {
+                        "type": "location_assignment",
+                        "location": "library"
+                    },
+                    {
+                        "type": "characters_present",
+                        "characters": [
+                            "Monet",
+                            "Donatello",
+                            "VanGogh"
+                        ]
+                    },
+                    {
+                        "type": "event_assignment",
+                        "event": "a secret is revealed in an ancient book"
+                    }
+                ]
+            },
+            {
+                "type": "scene_block",
+                "name": "Nine",
+                "details": [
+                    {
+                        "type": "location_assignment",
+                        "location": "underground"
+                    },
+                    {
+                        "type": "characters_present",
+                        "characters": [
+                            "Rembrandt",
+                            "Raphael",
+                            "Dali"
+                        ]
+                    },
+                    {
+                        "type": "event_assignment",
+                        "event": "a villain's plan is uncovered"
+                    }
+                ]
+            },
+            {
+                "type": "scene_block",
+                "name": "Ten",
+                "details": [
+                    {
+                        "type": "location_assignment",
+                        "location": "tower"
+                    },
+                    {
+                        "type": "characters_present",
+                        "characters": [
+                            "Michelangelo",
+                            "Frida",
+                            "Leonardo"
+                        ]
+                    },
+                    {
+                        "type": "event_assignment",
+                        "event": "a final showdown occurs between good and evil"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "instruction_block",
+        "instruction": "print characters",
+        "characters": []
+    }
+]
