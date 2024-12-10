@@ -1,0 +1,339 @@
+[
+    [
+        {
+            "type": "character_block",
+            "name": "Leonardo",
+            "definition": [
+                {
+                    "type": "restricted_assignment",
+                    "evil": true
+                },
+                {
+                    "type": "trait_list",
+                    "traits": [
+                        "brave",
+                        "ambitious",
+                        "cunning",
+                        "ruthless",
+                        "relentless",
+                        "charismatic",
+                        "innovative",
+                        "fearless",
+                        "strategic"
+                    ]
+                },
+                {
+                    "type": "restricted_assignment",
+                    "strength": 9999999999999
+                }
+            ]
+        },
+        {
+            "type": "character_block",
+            "name": "Picasso",
+            "definition": [
+                {
+                    "type": "restricted_assignment",
+                    "evil": false
+                },
+                {
+                    "type": "trait_list",
+                    "traits": [
+                        "rebellious",
+                        "impulsive",
+                        "visionary",
+                        "bold",
+                        "unconventional",
+                        "passionate",
+                        "daring",
+                        "emotional"
+                    ]
+                },
+                {
+                    "type": "restricted_assignment",
+                    "strength": 0
+                }
+            ]
+        },
+        {
+            "type": "character_block",
+            "name": "VanGogh",
+            "definition": [
+                {
+                    "type": "restricted_assignment",
+                    "evil": false
+                },
+                {
+                    "type": "trait_list",
+                    "traits": [
+                        "artistic",
+                        "troubled",
+                        "genius",
+                        "restless",
+                        "perceptive",
+                        "sensitive",
+                        "imaginative",
+                        "introspective",
+                        "melancholic"
+                    ]
+                },
+                {
+                    "type": "restricted_assignment",
+                    "strength": 5
+                }
+            ]
+        },
+        {
+            "type": "character_block",
+            "name": "Frida",
+            "definition": [
+                {
+                    "type": "restricted_assignment",
+                    "evil": true
+                },
+                {
+                    "type": "trait_list",
+                    "traits": [
+                        "fearless",
+                        "thoughtful",
+                        "resolute",
+                        "resilient",
+                        "intuitive",
+                        "compassionate",
+                        "poetic",
+                        "self"
+                    ]
+                },
+                {
+                    "type": "restricted_assignment",
+                    "strength": 0
+                }
+            ]
+        },
+        {
+            "type": "character_block",
+            "name": "aware",
+            "definition": [
+                {
+                    "type": "restricted_assignment",
+                    "evil": false
+                },
+                {
+                    "type": "restricted_assignment",
+                    "strength": 0
+                }
+            ]
+        },
+        {
+            "type": "character_block",
+            "name": "unyielding",
+            "definition": [
+                {
+                    "type": "restricted_assignment",
+                    "strength": 7
+                },
+                {
+                    "type": "restricted_assignment",
+                    "evil": false
+                }
+            ]
+        },
+        {
+            "type": "character_block",
+            "name": "Dali",
+            "definition": [
+                {
+                    "type": "restricted_assignment",
+                    "evil": false
+                },
+                {
+                    "type": "trait_list",
+                    "traits": [
+                        "imaginative",
+                        "eccentric",
+                        "surreal",
+                        "flamboyant",
+                        "enigmatic",
+                        "quirky",
+                        "unpredictable",
+                        "experimental",
+                        "whimsical"
+                    ]
+                },
+                {
+                    "type": "restricted_assignment",
+                    "strength": 8
+                }
+            ]
+        },
+        {
+            "type": "character_block",
+            "name": "Daumier",
+            "definition": [
+                {
+                    "type": "restricted_assignment",
+                    "evil": false
+                },
+                {
+                    "type": "trait_list",
+                    "traits": [
+                        "sharp",
+                        "critical",
+                        "satirical",
+                        "witty",
+                        "observant",
+                        "perceptive",
+                        "insightful",
+                        "rebellious",
+                        "analytical"
+                    ]
+                },
+                {
+                    "type": "restricted_assignment",
+                    "strength": 3
+                }
+            ]
+        }
+    ],
+    {
+        "type": "scene_block_list",
+        "scenes": [
+            {
+                "type": "scene_block",
+                "name": "One",
+                "details": [
+                    {
+                        "type": "location_assignment",
+                        "location": "gallery"
+                    },
+                    {
+                        "type": "characters_present",
+                        "characters": [
+                            "Leonardo",
+                            "Picasso",
+                            "Dali"
+                        ]
+                    },
+                    {
+                        "type": "event_assignment",
+                        "event": "the sculptures suddenly start talking, reciting poems about the meaning of existence, while moving their stone limbs in unison. One sculpture whispers a secret to Leonardo that shocks him."
+                    }
+                ]
+            },
+            {
+                "type": "scene_block",
+                "name": "Two",
+                "details": [
+                    {
+                        "type": "location_assignment",
+                        "location": "village"
+                    },
+                    {
+                        "type": "characters_present",
+                        "characters": [
+                            "VanGogh",
+                            "Frida"
+                        ]
+                    },
+                    {
+                        "type": "event_assignment",
+                        "event": "strange symbols appear on every wall, glowing faintly as night falls. Frida deciphers the symbols and realizes they tell the story of a forgotten civilization. Meanwhile, VanGogh is overcome with inspiration and begins painting them on every available surface."
+                    }
+                ]
+            },
+            {
+                "type": "scene_block",
+                "name": "Three",
+                "details": [
+                    {
+                        "type": "location_assignment",
+                        "location": "museum"
+                    },
+                    {
+                        "type": "characters_present",
+                        "characters": [
+                            "Picasso",
+                            "Daumier",
+                            "Dali"
+                        ]
+                    },
+                    {
+                        "type": "event_assignment",
+                        "event": "the lights flicker and reveal hidden paintings underneath the existing ones. Each new painting depicts unsettling visions of alternate realities, showing the characters as rulers, rebels, or shadows. Daumier critiques them, Dali applauds their surreal nature, and Picasso claims one as his own."
+                    }
+                ]
+            },
+            {
+                "type": "scene_block",
+                "name": "Four",
+                "details": [
+                    {
+                        "type": "location_assignment",
+                        "location": "forest"
+                    },
+                    {
+                        "type": "characters_present",
+                        "characters": [
+                            "Frida",
+                            "VanGogh",
+                            "Leonardo"
+                        ]
+                    },
+                    {
+                        "type": "event_assignment",
+                        "event": "time moves backward, and everyone gets younger. VanGogh notices the colors of the forest change into vibrant hues he has never seen before. Leonardo begins drafting inventions with childlike wonder, while Frida reflects on the fleeting nature of time as she observes the reversing seasons."
+                    }
+                ]
+            },
+            {
+                "type": "scene_block",
+                "name": "Five",
+                "details": [
+                    {
+                        "type": "location_assignment",
+                        "location": "mountain"
+                    },
+                    {
+                        "type": "characters_present",
+                        "characters": [
+                            "Picasso",
+                            "Dali",
+                            "Daumier"
+                        ]
+                    },
+                    {
+                        "type": "event_assignment",
+                        "event": "a portal opens in the sky and swallows the mountain piece by piece. Rocks float upwards as gravity reverses. Picasso sketches the surreal scene, Dali tries to jump into the portal, and Daumier shouts warnings about the consequences of tampering with unknown forces."
+                    }
+                ]
+            },
+            {
+                "type": "scene_block",
+                "name": "Six",
+                "details": [
+                    {
+                        "type": "location_assignment",
+                        "location": "labyrinth"
+                    },
+                    {
+                        "type": "characters_present",
+                        "characters": [
+                            "Leonardo",
+                            "Frida",
+                            "VanGogh"
+                        ]
+                    },
+                    {
+                        "type": "event_assignment",
+                        "event": "the walls of the labyrinth shift and trap everyone inside. Each turn they take leads them to strange rooms: one filled with mirrors reflecting their darkest fears, another showing glimpses of their past triumphs and failures. Leonardo studies the walls for patterns, Frida remains calm and resourceful, and VanGogh starts carving a path through the maze with artistic precision."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "instruction_block",
+        "instruction": "print characters",
+        "characters": []
+    }
+]

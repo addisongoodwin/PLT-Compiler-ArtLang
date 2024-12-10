@@ -1,0 +1,124 @@
+[
+    [
+        {
+            "type": "character_block",
+            "name": "Alice",
+            "definition": [
+                {
+                    "type": "restricted_assignment",
+                    "evil": false
+                },
+                {
+                    "type": "trait_list",
+                    "traits": [
+                        "brave",
+                        "humble",
+                        "smart"
+                    ]
+                },
+                {
+                    "type": "restricted_assignment",
+                    "strength": 10
+                }
+            ]
+        },
+        {
+            "type": "character_block",
+            "name": "Bob",
+            "definition": [
+                {
+                    "type": "restricted_assignment",
+                    "evil": true
+                },
+                {
+                    "type": "trait_list",
+                    "traits": [
+                        "big",
+                        "jealous"
+                    ]
+                },
+                {
+                    "type": "restricted_assignment",
+                    "strength": 9
+                }
+            ]
+        },
+        {
+            "type": "character_block",
+            "name": "Addison",
+            "definition": [
+                {
+                    "type": "trait_list",
+                    "traits": [
+                        "confused"
+                    ]
+                },
+                {
+                    "type": "restricted_assignment",
+                    "strength": 0
+                },
+                {
+                    "type": "restricted_assignment",
+                    "evil": false
+                }
+            ]
+        }
+    ],
+    {
+        "type": "scene_block_list",
+        "scenes": [
+            {
+                "type": "scene_block",
+                "name": "One",
+                "details": [
+                    {
+                        "type": "location_assignment",
+                        "location": "classroom"
+                    },
+                    {
+                        "type": "characters_present",
+                        "characters": [
+                            "Alice",
+                            "Bob",
+                            "Addison"
+                        ]
+                    },
+                    {
+                        "type": "event_assignment",
+                        "event": "the lights go out"
+                    }
+                ]
+            },
+            {
+                "type": "scene_block",
+                "name": "Two",
+                "details": [
+                    {
+                        "type": "location_assignment",
+                        "location": "village"
+                    },
+                    {
+                        "type": "characters_present",
+                        "characters": [
+                            "Alice",
+                            "Bob"
+                        ]
+                    },
+                    {
+                        "type": "event_assignment",
+                        "event": "fight"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "instruction_block",
+        "instruction": "print characters",
+        "characters": [
+            "Alice",
+            "Bob",
+            "Addison"
+        ]
+    }
+]

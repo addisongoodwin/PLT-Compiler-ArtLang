@@ -1,0 +1,48 @@
+Characters
+
+    Picasso
+        evil = yes
+        trait = big, jealous
+        strength = 
+
+    VanGogh
+        trait = confused
+        strength = 
+
+    Frida
+        evil = no
+        trait = witty, calm
+        strength = 1
+
+    Dali
+        evil = yes
+        trait = sneaky, quick
+        strength = 1
+
+Scenes
+    One
+        location = classroom
+        characters = Leonardo, Picasso, VanGogh
+        event = painting class
+
+    Two
+        location = village
+        characters = Leonardo, Picasso
+        event = pillow fight
+
+    Three
+        location = forest
+        characters = Frida, Dali, Leonardo
+        event = a mysterious shadow appears
+
+    Four
+        location = mountain
+        characters = VanGogh, Frida
+        event = the ground starts shaking
+
+    Five
+        location = castle
+        characters = Frida
+        event = the king is kidnapped
+
+write story

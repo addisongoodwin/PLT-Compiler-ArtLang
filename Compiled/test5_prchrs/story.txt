@@ -1,0 +1,10 @@
+--- Character Details ---
+
+Leonardo -> Traits: brave, ambitious, cunning, ruthless, relentless, charismatic, innovative, fearless, strategic, Evil: yes, Strength: 9999999999999
+Picasso -> Traits: rebellious, impulsive, visionary, bold, unconventional, passionate, daring, emotional, Evil: no, Strength: 0
+VanGogh -> Traits: artistic, troubled, genius, restless, perceptive, sensitive, imaginative, introspective, melancholic, Evil: no, Strength: 5
+Frida -> Traits: fearless, thoughtful, resolute, resilient, intuitive, compassionate, poetic, self, Evil: yes, Strength: 0
+aware -> Traits: , Evil: no, Strength: 0
+unyielding -> Traits: , Evil: no, Strength: 7
+Dali -> Traits: imaginative, eccentric, surreal, flamboyant, enigmatic, quirky, unpredictable, experimental, whimsical, Evil: no, Strength: 8
+Daumier -> Traits: sharp, critical, satirical, witty, observant, perceptive, insightful, rebellious, analytical, Evil: no, Strength: 3

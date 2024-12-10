@@ -1,0 +1,71 @@
+<(TOK_CHARACTERS, Characters)>
+<(TOK_ERROR, Error: Unexepcted character ':' at line 1, column 12)>
+<(TOK_IDENTIFIER, Alice)>
+<(TOK_ERROR, Error: Unexepcted character ':' at line 2, column 8)>
+<(TOK_EVIL, evil)>
+<(TOK_EQUALS, =)>
+<(TOK_NO, False)>
+<(TOK_TRAIT, trait)>
+<(TOK_EQUALS, =)>
+<(TOK_IDENTIFIER, brave)>
+<(TOK_COMMA, ,)>
+<(TOK_IDENTIFIER, humble)>
+<(TOK_COMMA, ,)>
+<(TOK_IDENTIFIER, smart)>
+<(TOK_STRENGTH, strength)>
+<(TOK_EQUALS, =)>
+<(TOK_NUMBER, 10)>
+<(TOK_IDENTIFIER, Bob)>
+<(TOK_ERROR, Error: Unexepcted character ':' at line 7, column 6)>
+<(TOK_EVIL, evil)>
+<(TOK_EQUALS, =)>
+<(TOK_YES, True)>
+<(TOK_TRAIT, trait)>
+<(TOK_EQUALS, =)>
+<(TOK_IDENTIFIER, big)>
+<(TOK_COMMA, ,)>
+<(TOK_IDENTIFIER, jealous)>
+<(TOK_STRENGTH, strength)>
+<(TOK_EQUALS, =)>
+<(TOK_NUMBER, 9)>
+<(TOK_IDENTIFIER, Addison)>
+<(TOK_ERROR, Error: Unexepcted character ':' at line 12, column 10)>
+<(TOK_TRAIT, trait)>
+<(TOK_EQUALS, =)>
+<(TOK_IDENTIFIER, confused)>
+<(TOK_STRENGTH, strength)>
+<(TOK_EQUALS, =)>
+<(TOK_NUMBER, 0)>
+<(TOK_SCENES, Scenes)>
+<(TOK_ERROR, Error: Unexepcted character ':' at line 16, column 8)>
+<(TOK_IDENTIFIER, One)>
+<(TOK_ERROR, Error: Unexepcted character ':' at line 17, column 6)>
+<(TOK_LOCATION, location)>
+<(TOK_EQUALS, =)>
+<(TOK_IDENTIFIER, classroom)>
+<(TOK_IDENTIFIER, characters)>
+<(TOK_EQUALS, =)>
+<(TOK_IDENTIFIER, Alice)>
+<(TOK_COMMA, ,)>
+<(TOK_IDENTIFIER, Bob)>
+<(TOK_COMMA, ,)>
+<(TOK_IDENTIFIER, Addison)>
+<(TOK_ERROR, Error: Unexepcted character '&' at line 19, column 36)>
+<(TOK_EVENT, event)>
+<(TOK_EQUALS, =)>
+<(TOK_IDENTIFIER, the lights go out)>
+<(TOK_IDENTIFIER, Two)>
+<(TOK_ERROR, Error: Unexepcted character ':' at line 21, column 6)>
+<(TOK_LOCATION, location)>
+<(TOK_EQUALS, =)>
+<(TOK_IDENTIFIER, village)>
+<(TOK_IDENTIFIER, characters)>
+<(TOK_EQUALS, =)>
+<(TOK_IDENTIFIER, Alice)>
+<(TOK_COMMA, ,)>
+<(TOK_IDENTIFIER, Bob)>
+<(TOK_EVENT, event)>
+<(TOK_EQUALS, =)>
+<(TOK_IDENTIFIER, fight)>
+<(TOK_WRITE_STORY_INST, write story)>
+<(TOK_ERROR, Error: Unexepcted character ';' at line 26, column 13)>

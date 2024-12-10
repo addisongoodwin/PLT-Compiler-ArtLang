@@ -1,0 +1,26 @@
+Characters
+	Alice
+		evil = no
+		trait = brave, humble, smart
+		strength = 10
+
+	Bob
+		evil = yes
+		trait = big, jealous
+		strength = 9
+
+	Addison
+		trait = confused
+		strength = 0
+
+Scenes
+	One
+		location = classroom
+		characters = Alice, Bob, Addison
+		event = the lights go out
+	Two
+		location = village
+		characters = Alice, Bob
+		event = fight
+
+print characters Alice, Bob, Addison
