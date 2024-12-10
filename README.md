@@ -1,61 +1,6 @@
 # PLT Programming Assignment Compiler -- ArtLang
 Addison Goodwin, ag4423
 
-## Context-free Grammar & Production Rules
-
-```
-program 			-> statement_list
-statement_list 			-> statement statement_list | ε
-
-statement			-> character_block | scene_block | instruction
-
-character_block			-> TOK_CHARACTERS TOK_IDENTIFIER character_definition
-scene_block			-> TOK_SCENES new_scene |  ε
-instruction			-> TOK_WRITE_STORY_INST | TOK_PRINT_CHARACTER_INST
-
-character_definition		-> character_detail | character_definition |  ε
-character_detail		-> restricted_assignment | trait_list
-restricted_assignment 		-> TOK_EVIL boolean | TOK_STRENGTH TOK_EQUALS TOK_NUMBER
-
-trait_list			-> TOK_TRAIT TOK_EQUALS trait_assignment_t
-trait_assignment_t		-> TOK_IDENTIFIER | TOK_COMMA TOK_IDENTIFIER trait_assignment_t | ε
-
-new_scene	 		-> TOK_IDENTIFIER scene_definition
-scene_definition		-> scene_detail scene_definition | ε
-scene_detail			-> location_assignment | characters_present | event_assignment
-
-location_assignment		-> TOK_LOCATION TOK_EQUALS TOK_IDENTIFIER
-event_assignment		-> TOK_EVENT TOK_EQUALS TOK_IDENTIFIER
-characters_present		-> TOK_IDENTIFIER TOK_EQUALS character_list
-character_list			-> TOK_IDENTIFIER character_list_t | ε
-character_list_t		-> TOK_COMMA TOK_IDENTIFIER character_list_t | ε
-
-boolean				-> TOK_TRUE | TOK_FALSE
-```
-
-```
-		NON-TERMINALS				TERMINALS
-----------------------------			----------------------------
-program						TOK_CHARACTERS
-statement					TOK_IDENTIFIER
-statement_list					TOK_SCENES
-character_block					TOK_WRITE_STORY_INST
-scene_block					TOK_PRINT_CHARACTER_INST
-instruction					TOK_EVIL
-character_definition				TOK_STRENGTH
-new_scene					TOK_TRAIT
-trait_list					TOK_LOCATION
-boolean						TOK_EVENT
-trait_assignment_t				TOK_COMMA
-scene_detail					TOK_EQUALS
-scene_definition				TOK_NUMBER
-location_assignment
-characters_present
-event_assignment
-character_list
-character_list_t
-```
-
 ## Change List
 ### ArtLang.py
 - The main pipline workflow for the compiler.
@@ -120,11 +65,60 @@ docker build -t parser-image .
 docker run parser-image
 ```  
 
-## Understanding Output of parser.py
+## Understanding Output
 
-The shell script should run automatically and display results of all 5 tests to the terminal as well as a file `full_test_output.txt` for covenient viewing with the logs section of the Docker container, terminal, or from the resulting `.txt` file.
 
-The output of lexer.py is used as input for parser.py. The inputs files can be found in the `/lexer_input` directory, and the corresponding output (and input to the parser) can be found in `/lexer_output`.
+## Context-free Grammar & Production Rules
 
-### Error Handling
-I moved much of the error handing I was doing during lexical analysis into the parsing. I felt that some of the corrections were syntatic errors, and thus should be handled in the parser. I want to try to implement automatic error fixing, for example assigning default values of `'0'` for when an invalid value is passed into the `strength` property, but it is not quite implemented yet. It is sucessfully catching errors and trying to continue forwards for the most part, only stopping when it gets really confused or "misalligned" during the recursive descent parsing.
+```
+program 			-> statement_list
+statement_list 			-> statement statement_list | ε
+
+statement			-> character_block | scene_block | instruction
+
+character_block			-> TOK_CHARACTERS TOK_IDENTIFIER character_definition
+scene_block			-> TOK_SCENES new_scene |  ε
+instruction			-> TOK_WRITE_STORY_INST | TOK_PRINT_CHARACTER_INST
+
+character_definition		-> character_detail | character_definition |  ε
+character_detail		-> restricted_assignment | trait_list
+restricted_assignment 		-> TOK_EVIL boolean | TOK_STRENGTH TOK_EQUALS TOK_NUMBER
+
+trait_list			-> TOK_TRAIT TOK_EQUALS trait_assignment_t
+trait_assignment_t		-> TOK_IDENTIFIER | TOK_COMMA TOK_IDENTIFIER trait_assignment_t | ε
+
+new_scene	 		-> TOK_IDENTIFIER scene_definition
+scene_definition		-> scene_detail scene_definition | ε
+scene_detail			-> location_assignment | characters_present | event_assignment
+
+location_assignment		-> TOK_LOCATION TOK_EQUALS TOK_IDENTIFIER
+event_assignment		-> TOK_EVENT TOK_EQUALS TOK_IDENTIFIER
+characters_present		-> TOK_IDENTIFIER TOK_EQUALS character_list
+character_list			-> TOK_IDENTIFIER character_list_t | ε
+character_list_t		-> TOK_COMMA TOK_IDENTIFIER character_list_t | ε
+
+boolean				-> TOK_TRUE | TOK_FALSE
+```
+
+```
+		NON-TERMINALS				TERMINALS
+----------------------------			----------------------------
+program						TOK_CHARACTERS
+statement					TOK_IDENTIFIER
+statement_list					TOK_SCENES
+character_block					TOK_WRITE_STORY_INST
+scene_block					TOK_PRINT_CHARACTER_INST
+instruction					TOK_EVIL
+character_definition				TOK_STRENGTH
+new_scene					TOK_TRAIT
+trait_list					TOK_LOCATION
+boolean						TOK_EVENT
+trait_assignment_t				TOK_COMMA
+scene_detail					TOK_EQUALS
+scene_definition				TOK_NUMBER
+location_assignment
+characters_present
+event_assignment
+character_list
+character_list_t
+```
